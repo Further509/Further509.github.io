@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  viewport-fit=cover" name="viewport" />
+    <meta name="description" content="数据预处理" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>Yang Mingxin&#39;s Blog | </title>
+
+    
+        
+            
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/reset.css">
+
+            
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/markdown.css">
+
+            
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/fonts.css">
+ 
+            <!--注意：首页既不是post也不是page-->
+            
+                
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/waline.css">
+
+            
+        
+    
+    
+<link rel="stylesheet" href="/css/ui.css">
+ 
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+    <body>
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/favicon.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Yang Mingxin&#39;s Blog</a> 
+            <span class="description"></span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            数据预处理
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="post-toc-text">决策树分类算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CLS"><span class="post-toc-text">CLS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ID3"><span class="post-toc-text">ID3</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="post-toc-text">信息熵</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A"><span class="post-toc-text">信息增益</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gini%E6%8C%87%E6%95%B0"><span class="post-toc-text">Gini指数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%AF%E5%88%86%E7%8E%87"><span class="post-toc-text">误分率</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C4-5"><span class="post-toc-text">C4.5</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E7%8E%87"><span class="post-toc-text">信息增益率</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%89%AA%E6%9E%9D"><span class="post-toc-text">决策树的剪枝</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95"><span class="post-toc-text">朴素贝叶斯算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#K%E8%BF%91%E9%82%BB"><span class="post-toc-text">K近邻</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9B%9E%E5%BD%92"><span class="post-toc-text">回归</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="post-toc-text">一元线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="post-toc-text">多元线性回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%9B%9E%E5%BD%92"><span class="post-toc-text">多项式回归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E9%97%AE%E9%A2%98"><span class="post-toc-text">过拟合问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%87%8F%E5%B0%91%E7%89%B9%E5%BE%81%E6%95%B0%E9%87%8F"><span class="post-toc-text">减少特征数量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="post-toc-text">正则化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Lasso%E5%9B%9E%E5%BD%92"><span class="post-toc-text">Lasso回归</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B2%AD%E5%9B%9E%E5%BD%92"><span class="post-toc-text">岭回归</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%90%86%E8%A7%A3"><span class="post-toc-text">理解</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SVM"><span class="post-toc-text">SVM</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%8C%96%E6%8E%98"><span class="post-toc-text">关联规则挖掘</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%9B%86%E6%88%90"><span class="post-toc-text">集成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bagging%E7%AE%97%E6%B3%95"><span class="post-toc-text">Bagging算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="post-toc-text">随机森林</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="post-toc-text">决策树的局限性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="post-toc-text">随机森林算法原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="post-toc-text">性能评估</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="post-toc-text">随机森林与特征选择</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">优缺点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD"><span class="post-toc-text">其他功能</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Boosting%E7%AE%97%E6%B3%95"><span class="post-toc-text">Boosting算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost"><span class="post-toc-text">AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E6%9D%83%E9%87%8D%E6%9B%B4%E6%96%B0"><span class="post-toc-text">分类器权重更新</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%A0%B7%E6%9C%AC%E6%9D%83%E9%87%8D%E6%9B%B4%E6%96%B0"><span class="post-toc-text">样本权重更新</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9-1"><span class="post-toc-text">优缺点</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+        <p>分类是一种典型的有监督学习问题<br><strong>分类一般分为以下两个阶段：</strong></p>
+<ol>
+<li>分类器训练：即通过训练样本的特征和标签来建立分类模型</li>
+<li>分类预测：利用分类模型对没有分类标签的数据进行分类<br><strong>数据集划分为训练集和测试集</strong></li>
+<li>训练集训练分类器</li>
+<li>测试集用于评估分类性能</li>
+</ol>
+<h1 id="决策树分类算法"><a href="#决策树分类算法" class="headerlink" title="决策树分类算法"></a>决策树分类算法</h1><h2 id="CLS"><a href="#CLS" class="headerlink" title="CLS"></a>CLS</h2><p>CLS算法问题：<br>       测试属性集的组成以及测试属性的先后对决策树的学习具有举足轻重的影响。</p>
+<h2 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a>ID3</h2><p>**不纯度 (impurity)**：<br>    表示落在当前节点的样本类别分布的均衡程度，节点分裂后，节点不纯度应该更低，选择特征及对应分割点，使得分裂前后的不纯度(impurity)下降最大。<br>节点不纯度的度量</p>
+<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><p>![[Pasted image 20230602210748.png]]</p>
+<h4 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h4><p>![[Pasted image 20230602210858.png]]</p>
+<h3 id="Gini指数"><a href="#Gini指数" class="headerlink" title="Gini指数"></a>Gini指数</h3><p>![[Pasted image 20230602210954.png]]</p>
+<h3 id="误分率"><a href="#误分率" class="headerlink" title="误分率"></a>误分率</h3><p>![[Pasted image 20230602211036.png]]<br>ID3算法存在的问题：<br>    倾向于分裂成很多的小节点（节点的样本数较小），容易造成过拟合 </p>
+<h2 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a>C4.5</h2><h3 id="信息增益率"><a href="#信息增益率" class="headerlink" title="信息增益率"></a>信息增益率</h3><p>![[Pasted image 20230602211311.png]]</p>
+<h2 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h2><p>![[Pasted image 20230602211414.png]]</p>
+<h1 id="朴素贝叶斯算法"><a href="#朴素贝叶斯算法" class="headerlink" title="朴素贝叶斯算法"></a>朴素贝叶斯算法</h1><p>0概率处理：<br>    加1平滑，使用加1的方法估计没有出现过现象的概率，以保证概率不会出现0<br>优缺点分析：<br>![[Pasted image 20230604111755.png]]<br>![[Pasted image 20230604111821.png]]</p>
+<h1 id="K近邻"><a href="#K近邻" class="headerlink" title="K近邻"></a>K近邻</h1><p>![[Pasted image 20230604113444.png]]</p>
+<h1 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h1><h2 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h2><h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><p>![[Pasted image 20230604114923.png]]</p>
+<h2 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h2><p>![[Pasted image 20230604115021.png]]<br><strong>多项式回归的优点</strong>：可以通过增加 x 的高次项对实测点进行逼近，直至满意为止。<br>多项式回归可以处理相当一类非线性问题，它在回归分析中占有重要的地位，因为任一函数都可以分段用多项式来逼近。因此，在通常的实际问题中，不论依变量与其他自变量的关系如何，我们总可以用多项式回归来进行分析。</p>
+<h2 id="过拟合问题"><a href="#过拟合问题" class="headerlink" title="过拟合问题"></a>过拟合问题</h2><h3 id="减少特征数量"><a href="#减少特征数量" class="headerlink" title="减少特征数量"></a>减少特征数量</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h4 id="Lasso回归"><a href="#Lasso回归" class="headerlink" title="Lasso回归"></a>Lasso回归</h4><p>![[Pasted image 20230604120834.png]]</p>
+<h4 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h4><p>![[Pasted image 20230604120910.png]]<br>![[Pasted image 20230604120929.png]]</p>
+<h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><p>![[Pasted image 20230604121004.png]]</p>
+<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><p>最大化边界<br>线性不可分——升维<br>核函数<br>![[Pasted image 20230604121434.png]]</p>
+<h1 id="关联规则挖掘"><a href="#关联规则挖掘" class="headerlink" title="关联规则挖掘"></a>关联规则挖掘</h1><p>支持度，置信度（条件概率<br>![[Pasted image 20230604121636.png]]<br><strong>事务</strong>：每一条购物信息可以被定义为一个事务；<br><strong>项</strong>：购物信息中的一项物品被定义为项；<br><strong>项集</strong>：包含零个项或多个项的集合被称为项集，含有k个项的项集称为k项集；<br><strong>关联规则</strong>就可以表示为形如“A&#x3D;&gt;B” 的蕴涵式，其中A，B均为非空项集，且A∩B&#x3D; ∅。<br>支持度大于预定义的最小支持度阈值的项集称为<strong>频繁项集</strong>。<br>有了频繁项集的定义，可以把从数据集中挖掘强关联规则的过程分为两步：<br>    第一步：需要找出满足最小支持度阈值的项集，即频繁项集；<br>    第二步：根据最小置信度阈值，从频繁项集中生成强关联规则。<br><strong>Apriori性质</strong>：<br>    如果一个项集A是频繁项集，那么它的非空子集B也是频繁项集。<br>    或者：如果一个项集不是频繁项集，那它的超集也不是频繁项集。<br>![[Pasted image 20230604121948.png]]<br>![[Pasted image 20230604122246.png]]<br>FP-Growth算法<br>![[Pasted image 20230604125203.png]]</p>
+<h1 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h1><p>降低误差<br>    - 假设单个分类器误差 𝑝，分类器之间独立，𝑇个分类器采用投票进行预测，得到集成模型 𝐻<br>    - 集成分类器误差为：<br>       𝑇&#x3D;5,   𝑝&#x3D;0.1 时， Error𝐻&lt;0.01</p>
+<ul>
+<li>多数投票方法 (majority vote)</li>
+<li>平均 (averaging)</li>
+<li>加权平均 (weighted averaging)：如AdaBoost<br>![[Pasted image 20230604125423.png]]</li>
+</ul>
+<h2 id="Bagging算法"><a href="#Bagging算法" class="headerlink" title="Bagging算法"></a>Bagging算法</h2><p>![[Pasted image 20230604125515.png]]<br>优势：<br>    - 特别适合用来提高那些方差大但偏差小的基模型(决策树，神经网络等)的预测性能<br>    - 单个模型不稳定：对训练数据轻微的改变就能够造成分类器性能很明显的变化<br>    - 使用Bagging可以综合投票结果，从而提升稳定性以及准确率<br>    - 便于并行化。多个抽样数据的获取及基模型的训练互相没有关联，可以方便地进行并行计算 </p>
+<h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><p>![[Pasted image 20230604125636.png]]</p>
+<h4 id="决策树的局限性"><a href="#决策树的局限性" class="headerlink" title="决策树的局限性"></a>决策树的局限性</h4><p>![[Pasted image 20230604125703.png]]</p>
+<h4 id="随机森林算法原理"><a href="#随机森林算法原理" class="headerlink" title="随机森林算法原理"></a>随机森林算法原理</h4><p>![[Pasted image 20230604125751.png]]<br>![[Pasted image 20230604125804.png]]<br>![[Pasted image 20230604125815.png]]</p>
+<h4 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h4><p>![[Pasted image 20230604125848.png]]<br>![[Pasted image 20230604125859.png]]</p>
+<h4 id="随机森林与特征选择"><a href="#随机森林与特征选择" class="headerlink" title="随机森林与特征选择"></a>随机森林与特征选择</h4><p>![[Pasted image 20230604125928.png]]</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点：<br>    - 能够处理很高维度的数据，并且不用做特征选择<br>    - 对特征之间存在的多重共线性不敏感，并且能够在一定程度上处理缺失数据和不均衡数据<br>    - 在训练完后能够给出哪些特征比较重要<br>    - 容易做成并行化方法<br>缺点：<br>    - 处理噪音较大的小样本和低维数据集的问题上会过度拟合<br>    - 相对于决策树，预测速度较慢<br>    - 相对于决策树，模型可解释性较差</p>
+<h4 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h4><p>![[Pasted image 20230604130139.png]]</p>
+<h2 id="Boosting算法"><a href="#Boosting算法" class="headerlink" title="Boosting算法"></a>Boosting算法</h2><p>串行方式训练获得强分类器</p>
+<h3 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h3><p>AdaBoost (Adaptive Boosting)是最有代表性的Boosting算法；<br>AdaBoost的核心思想是利用同一训练样本的不同加权版本，训练一组弱分类器，然后把这些弱分类器以加权的形式集成起来，形成一个最终的强分类器：<br>        - 在每一步迭代过程中，会给训练集中的样本赋予一个权重(w_1,w_2,…,w_n)；<br>        - 样本的初始权重都一样，设置为 1&#x2F;𝑛；<br>        - 在每一步迭代过程中，被当前弱分类器分错的样本的权重会相应得到提高，被当前弱分类器分对的样本的权重则会相应降低；<br>        - 弱分类器的权重则根据当前分类器的加权错误率来确定。<br>特点：<br>通过改变样本权重的方式训练新的弱分类器，后一个弱分类器基于前一个分类器的结果来训练；<br>能够自动学习多个弱分类器集成时的分类器权重；<br>不需要预先设置弱分类器误差上界。<br>![[Pasted image 20230604130407.png]]</p>
+<h4 id="分类器权重更新"><a href="#分类器权重更新" class="headerlink" title="分类器权重更新"></a>分类器权重更新</h4><p>![[Pasted image 20230604130439.png]]</p>
+<h4 id="样本权重更新"><a href="#样本权重更新" class="headerlink" title="样本权重更新"></a>样本权重更新</h4><p>![[Pasted image 20230604130505.png]]</p>
+<h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4><p>![[Pasted image 20230604130550.png]]</p>
+
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2023-06-18</span>
+            
+            
+             
+        
+        </i>
+    </div>
+    
+        
+    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        以上。 
+    </div>
+        
+
+    <div id="waline"></div>
+    <script type="module"  >
+        import { init } from 'https://npm.elemecdn.com/hexo-theme-a4@latest/source/js/waline.mjs'; 
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://test-ouuyoomiw-further509.vercel.app/',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+                search: false, // 禁止表情包搜索
+                reaction: false, // 对文章打分
+                pageview: false, // 浏览量统计
+                comment: false, // 评论数统计
+
+                locale: {
+                    placeholder: '正确的邮箱地址，回复将能得到邮件通知。', 
+                    sofa: ''
+                },
+            });
+            
+        }
+        window.addEventListener('DOMContentLoaded', loadWaline);
+    </script>
+
+
+    </div>
+
+
+     
+</div>
+
+
+
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2023 China 
+
+            
+                
+
+            
+                
+                    / <a href="/support/"> 支持 </a>
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+        
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/a11y-dark.min.css">
+
+        
+<script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/highlight.min.js"></script>
+
+        
+<script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/highlightjs-line-numbers.js"></script>
+
+    
+
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+                </div>
+            
+    </body>
+</html>
