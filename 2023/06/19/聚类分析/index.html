@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  viewport-fit=cover" name="viewport" />
+    <meta name="description" content="聚类分析" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>Yang Mingxin&#39;s Blog | </title>
+
+    
+        
+            
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/reset.css">
+
+            
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/markdown.css">
+
+            
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/fonts.css">
+ 
+            <!--注意：首页既不是post也不是page-->
+            
+                
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/waline.css">
+
+            
+        
+    
+    
+<link rel="stylesheet" href="/css/ui.css">
+ 
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+    <body>
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+<div class="header">
+    <div class="header-container">
+        <img style="
+        width: 56px;
+        height: auto;" alt="^-^" cache-control="max-age=86400" class="header-img" src="/img/favicon.webp" width="10%"></img>
+        <div class="header-content">
+            <a class="logo" href="/">Yang Mingxin&#39;s Blog</a> 
+            <span class="description"></span> 
+        </div>
+        
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+
+    
+        <div class="post-main-title">
+            聚类分析
+        </div>
+      
+    
+
+    <div class="post-md">
+        
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#K-means%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">K-means模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB"><span class="post-toc-text">层次聚类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%81%9A%E5%90%88%E5%BC%8F%E8%81%9A%E7%B1%BB"><span class="post-toc-text">聚合式聚类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E8%BF%9E%E6%8E%A5"><span class="post-toc-text">单连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%8C%E6%95%B4%E8%BF%9E%E6%8E%A5"><span class="post-toc-text">完整连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B9%B3%E5%9D%87%E8%BF%9E%E6%8E%A5"><span class="post-toc-text">平均连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83"><span class="post-toc-text">比较</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E6%8B%86%E5%BC%8F%E8%81%9A%E7%B1%BB"><span class="post-toc-text">分拆式聚类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AF%86%E5%BA%A6%E8%81%9A%E7%B1%BB"><span class="post-toc-text">密度聚类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DBSCAN%E7%AE%97%E6%B3%95"><span class="post-toc-text">DBSCAN算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PageRank%E7%AE%97%E6%B3%95"><span class="post-toc-text">PageRank算法</span></a></li></ol>
+        
+        <ul>
+<li>聚类模型的本质：将数据集中相似的样本进行分组的过程</li>
+<li>每个组称为一个簇(cluster)每个簇的样本对应一个潜在的类别 </li>
+<li>样本是没有类别标签的，因此聚类是一种典型的无监督学习任务 ，这些簇满足以下两个条件：<ul>
+<li>相同簇的样本之间距离较近</li>
+<li>不同簇的样本之间距离较远</li>
+</ul>
+</li>
+</ul>
+<h2 id="K-means模型"><a href="#K-means模型" class="headerlink" title="K-means模型"></a>K-means模型</h2><h2 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h2><p><strong>层次聚类</strong>(hierarchical clustering)在不同层级上对样本进行聚类，逐步形成树状的结构<br>根据层次分解是以自底向上（合并）还是自顶向下（分裂）方式，层次聚类方法可以分为<br>    <strong>聚合式</strong>聚类(agglomerative clustering)<br>    <strong>分拆式</strong>聚类(divisive clustering)<br>两种方法均是启发式的策略，并没有去优化一个明确的目标函数来实现聚类，很难严格评价聚类的效果</p>
+<h3 id="聚合式聚类"><a href="#聚合式聚类" class="headerlink" title="聚合式聚类"></a>聚合式聚类</h3><h4 id="单连接"><a href="#单连接" class="headerlink" title="单连接"></a>单连接</h4><h4 id="完整连接"><a href="#完整连接" class="headerlink" title="完整连接"></a>完整连接</h4><h4 id="平均连接"><a href="#平均连接" class="headerlink" title="平均连接"></a>平均连接</h4><h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>单连接法只需要两簇内有成员对距离足够近就将两簇合并，而并没有考虑其他簇内其他成员的距离，因此单连接方法形成的簇很有<strong>可能违背紧致性特征</strong> 即簇内成员应该尽可能相似<br>完整连接法是另外一个极端，只有当两簇的联合的成员间的距离相对较小时才将两簇进行合并，因此完整连接法倾向于生成紧致簇<br>平均连接法是介于单连接和完整连接之间的方法，易于生成相对紧致的簇同时簇间距离较远 </p>
+<h3 id="分拆式聚类"><a href="#分拆式聚类" class="headerlink" title="分拆式聚类"></a>分拆式聚类</h3><p>分拆式聚类将所有样本集合看作一簇，以自上而下的方式，递归地将现有的簇分拆为两个子簇<br>利用不同的启发式方法进行分拆方式的选择：<br><strong>二分K-means聚类</strong><br>    选择半径最大的簇，对该簇进行K-means聚类分为两个子簇<br>    重复此过程直到达到想要的簇个数<br><strong>最小生成树法</strong><br>    将每个样本看作一个图节点，将样本间距离看作节点间边的权重，根据此图建立最小生成树<br>    从权重最大处将该簇分拆为两簇，然后重复此过程直到达到想要的簇个数。实际上，该方法得到的聚类结果和单连接的聚合聚类得到的结果一致</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>层次聚类一次性地得到了整个聚类的过程，想要分多少个簇都可以直接根据树图来得到结果，改变簇的数目不需要再次计算数据点的归属类别;<br>单连接和完全连接代表了簇间距离度量的两个极端，它们对离群点或噪声数据过分敏感;<br>平均连接是一种折中方法，它可以克服离群点敏感性问题<br>层次聚类的缺点是计算量大，而且错分在层次聚类中是不可修正的，一旦某个样本被分到某个聚类中，则该样本永远停留在该聚类中</p>
+<h2 id="密度聚类"><a href="#密度聚类" class="headerlink" title="密度聚类"></a>密度聚类</h2><p>密度聚类又称为<strong>基于密度聚类</strong>（density-based clustering）。此类算法假设聚类结构由样本分布的紧密程度确定，以数据集在空间分布上的稠密程度为依据进行聚类，即只要一个区域中的样本<strong>密度大于某个阈值</strong>，就把它<strong>划入与之相近的簇中</strong>。<br>不同于基于质心的原型聚类算法，基于密度的算法不需要事先设置k值。常用的密度聚类算法：DBSCAN、MDCA、OPTICS、DENCLUE等。</p>
+<h3 id="DBSCAN算法"><a href="#DBSCAN算法" class="headerlink" title="DBSCAN算法"></a>DBSCAN算法</h3><p><strong>算法原理</strong><br>    DBSCAN是一种著名的密度聚类算法，它基于一组邻域参数(ϵ，Minpts)刻画样本分布的紧密程度，寻找数据集中的高密度以及低密度区域来完成聚类。可以将该算法归纳为三个步骤：设定邻域参数，数据点分类，聚类。<br>第一步：<strong>设定邻域参数(ϵ，Minpts)</strong><br>以各个数据点为中心，以ϵ为半径，计算其ϵ-邻域内的数据点密度。其中Minpts代表一个簇中最少的数据点个数，高于这个值则为高密度区域，否则为低密度区域。用户可以根据数据集的实际密度的不同设置这两个参数。<br>第二步：<strong>数据点分类</strong><br>基于邻域参数，在DBSCAN算法中，所有的数据点可以分为以下三个类别：<br><strong>核心点</strong>:如果某个点的邻域内的数据点数目高于阈值minpts，则将这个点视为核心点。<br><strong>边界点</strong>是位于核心点邻域之内的，但是其自身的邻域内数据点数小于minpts的点，起到将高密度区域与低密度区域分割开的作用。<br><strong>噪声点</strong>:既不是核心点也不是边界点的其他数据点，他们组成低密度区域。<br>![[Pasted image 20230604194801.png]]<br>进行密度聚类之前还需要了解下面三个概念：<br><strong>密度直达</strong>：两个同属于一个邻域的数据点是密度直达关系<br><strong>密度可达</strong>：o在p的邻域内，从p到o是密度直达，而q对象的邻域内不包括p，但是包括o，这样p-&gt;o-&gt;q，称p到q是密度可达的。<br><strong>密度相连</strong>：q和p是密度可达的, q和t也是密度可达的，则p和t是密度相连的。<br>第三步：<strong>聚类</strong><br>DBSCAN的目标为找到密度相连数据点的最大集合，此集合作为最终的一簇。首先核心点各自成簇，采用密度相连的概念逐步对簇进行合并，打上标记。<br>最终核心点密集的区域会被低密度噪声点包围，噪声点不单独成簇。所以采用DBSCAN进行聚类，最终的结果有一些数据点是没有标记的，这些就是噪声点。<br><strong>优点</strong>：</p>
+<ol>
+<li>无需事先设定簇的个数，算法根据数据自身找出各簇</li>
+<li>适于稠密的非凸数据集，可以发现任意形状的簇</li>
+<li>可以在聚类时发现噪音点、对数据集中的异常点不敏感</li>
+<li>对样本输入顺序不敏感<br><strong>缺点</strong>：</li>
+<li>因为是基于密度分析，如果客观存在的两个簇没有明显的可分间隔，则很有可能被合并为同一个簇</li>
+<li>同时DBSCAN聚类的参数调节较为复杂，参数设置对结果影响较大</li>
+<li>DBSCAN对高维的数据处理效果不好</li>
+</ol>
+<h2 id="PageRank算法"><a href="#PageRank算法" class="headerlink" title="PageRank算法"></a>PageRank算法</h2><p>基本思想：</p>
+<ol>
+<li>不只考虑词项，还考虑指向该网页的链接情况</li>
+<li>被越多优质的网页所指的网页，它是优质的概率就越大<br>Dead End问题<br>链接农场问题<br>交换网站<br>黄金链<br>如何解决链接农场问题？</li>
+<li>对链接的质量进行评估：Google 能够评估链接的质量，通过评估，会考虑链接的来源、内容以及对页面质量产生的影响等因素。</li>
+<li>对链接的数量进行评估：如果某个网站的链接数量异常突出，Google 就会高度怀疑这些链接的真实性，因此会对这些链接进行评估，以判断它们是否具有真正价值。</li>
+<li>采用基于内容的评估方法：Google 会对链接所指向的网页进行内容判断，如果发现这些页面的内容与链接不相关或者低质量，就会对链接产生负面评价。</li>
+</ol>
+
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2023-06-19</span>
+            
+                <span>该篇文章被 Yang Mingxin</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA/'>
+                            数据科学导论
+                        </a>
+                    
+                </span>
+             
+             
+                <span>归为分类:
+                    
+                    
+                        <a href='/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA/'>
+                            数据科学导论
+                        </a>
+                    
+                </span>
+            
+        
+        </i>
+    </div>
+    
+        
+    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        以上。 
+    </div>
+        
+
+    <div id="waline"></div>
+    <script type="module"  >
+        import { init } from 'https://npm.elemecdn.com/hexo-theme-a4@latest/source/js/waline.mjs'; 
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://test-ouuyoomiw-further509.vercel.app/',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+                search: false, // 禁止表情包搜索
+                reaction: false, // 对文章打分
+                pageview: false, // 浏览量统计
+                comment: false, // 评论数统计
+
+                locale: {
+                    placeholder: '正确的邮箱地址，回复将能得到邮件通知。', 
+                    sofa: ''
+                },
+            });
+            
+        }
+        window.addEventListener('DOMContentLoaded', loadWaline);
+    </script>
+
+
+    </div>
+
+
+     
+</div>
+
+
+
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2023 China 
+
+            
+                
+
+            
+                
+                    / <a href="/support/"> 支持 </a>
+                
+
+            
+        </span>
+    
+</div>
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+        
+<link rel="stylesheet" href="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/css/a11y-dark.min.css">
+
+        
+<script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/highlight.min.js"></script>
+
+        
+<script src="https://jsd.onmicrosoft.cn/npm/hexo-theme-a4@latest/source/js/highlightjs-line-numbers.js"></script>
+
+    
+
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+                </div>
+            
+    </body>
+</html>
