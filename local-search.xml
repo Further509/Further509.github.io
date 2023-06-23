@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>分类与回归</title>
+    <link href="/2023/06/19/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%9B%9E%E5%BD%92/"/>
+    <url>/2023/06/19/%E5%88%86%E7%B1%BB%E4%B8%8E%E5%9B%9E%E5%BD%92/</url>
+    
+    <content type="html"><![CDATA[<p>分类是一种典型的有监督学习问题<br><strong>分类一般分为以下两个阶段：</strong></p><ol><li>分类器训练：即通过训练样本的特征和标签来建立分类模型</li><li>分类预测：利用分类模型对没有分类标签的数据进行分类<br><strong>数据集划分为训练集和测试集</strong></li><li>训练集训练分类器</li><li>测试集用于评估分类性能</li></ol><h1 id="决策树分类算法"><a href="#决策树分类算法" class="headerlink" title="决策树分类算法"></a>决策树分类算法</h1><h2 id="CLS"><a href="#CLS" class="headerlink" title="CLS"></a>CLS</h2><p>CLS算法问题：<br>       测试属性集的组成以及测试属性的先后对决策树的学习具有举足轻重的影响。</p><h2 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a>ID3</h2><p>**不纯度 (impurity)**：<br>    表示落在当前节点的样本类别分布的均衡程度，节点分裂后，节点不纯度应该更低，选择特征及对应分割点，使得分裂前后的不纯度(impurity)下降最大。<br>节点不纯度的度量</p><h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><h4 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h4><h3 id="Gini指数"><a href="#Gini指数" class="headerlink" title="Gini指数"></a>Gini指数</h3><h3 id="误分率"><a href="#误分率" class="headerlink" title="误分率"></a>误分率</h3><p>ID3算法存在的问题：<br>    倾向于分裂成很多的小节点（节点的样本数较小），容易造成过拟合 </p><h2 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a>C4.5</h2><h3 id="信息增益率"><a href="#信息增益率" class="headerlink" title="信息增益率"></a>信息增益率</h3><h2 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h2><h1 id="朴素贝叶斯算法"><a href="#朴素贝叶斯算法" class="headerlink" title="朴素贝叶斯算法"></a>朴素贝叶斯算法</h1><p>0概率处理：<br>    加1平滑，使用加1的方法估计没有出现过现象的概率，以保证概率不会出现0<br>优缺点分析：</p><h1 id="K近邻"><a href="#K近邻" class="headerlink" title="K近邻"></a>K近邻</h1><h1 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h1><h2 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h2><h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><h2 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h2><p><strong>多项式回归的优点</strong>：可以通过增加 x 的高次项对实测点进行逼近，直至满意为止。<br>多项式回归可以处理相当一类非线性问题，它在回归分析中占有重要的地位，因为任一函数都可以分段用多项式来逼近。因此，在通常的实际问题中，不论依变量与其他自变量的关系如何，我们总可以用多项式回归来进行分析。</p><h2 id="过拟合问题"><a href="#过拟合问题" class="headerlink" title="过拟合问题"></a>过拟合问题</h2><h3 id="减少特征数量"><a href="#减少特征数量" class="headerlink" title="减少特征数量"></a>减少特征数量</h3><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h4 id="Lasso回归"><a href="#Lasso回归" class="headerlink" title="Lasso回归"></a>Lasso回归</h4><h4 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h4><h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><p>最大化边界<br>线性不可分——升维<br>核函数</p><h1 id="关联规则挖掘"><a href="#关联规则挖掘" class="headerlink" title="关联规则挖掘"></a>关联规则挖掘</h1><p>支持度，置信度（条件概率</p><p><strong>事务</strong>：每一条购物信息可以被定义为一个事务；<br><strong>项</strong>：购物信息中的一项物品被定义为项；<br><strong>项集</strong>：包含零个项或多个项的集合被称为项集，含有k个项的项集称为k项集；<br><strong>关联规则</strong>就可以表示为形如“A&#x3D;&gt;B” 的蕴涵式，其中A，B均为非空项集，且A∩B&#x3D; ∅。<br>支持度大于预定义的最小支持度阈值的项集称为<strong>频繁项集</strong>。<br>有了频繁项集的定义，可以把从数据集中挖掘强关联规则的过程分为两步：<br>    第一步：需要找出满足最小支持度阈值的项集，即频繁项集；<br>    第二步：根据最小置信度阈值，从频繁项集中生成强关联规则。<br><strong>Apriori性质</strong>：<br>    如果一个项集A是频繁项集，那么它的非空子集B也是频繁项集。<br>    或者：如果一个项集不是频繁项集，那它的超集也不是频繁项集。</p><p>FP-Growth算法</p><h1 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h1><p>降低误差<br>    - 假设单个分类器误差 𝑝，分类器之间独立，𝑇个分类器采用投票进行预测，得到集成模型 𝐻<br>    - 集成分类器误差为：<br>       𝑇&#x3D;5,   𝑝&#x3D;0.1 时， Error𝐻&lt;0.01</p><ul><li>多数投票方法 (majority vote)</li><li>平均 (averaging)</li><li>加权平均 (weighted averaging)：如AdaBoost</li></ul><h2 id="Bagging算法"><a href="#Bagging算法" class="headerlink" title="Bagging算法"></a>Bagging算法</h2><p>优势：<br>    - 特别适合用来提高那些方差大但偏差小的基模型(决策树，神经网络等)的预测性能<br>    - 单个模型不稳定：对训练数据轻微的改变就能够造成分类器性能很明显的变化<br>    - 使用Bagging可以综合投票结果，从而提升稳定性以及准确率<br>    - 便于并行化。多个抽样数据的获取及基模型的训练互相没有关联，可以方便地进行并行计算 </p><h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><h4 id="决策树的局限性"><a href="#决策树的局限性" class="headerlink" title="决策树的局限性"></a>决策树的局限性</h4><h4 id="随机森林算法原理"><a href="#随机森林算法原理" class="headerlink" title="随机森林算法原理"></a>随机森林算法原理</h4><h4 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h4><h4 id="随机森林与特征选择"><a href="#随机森林与特征选择" class="headerlink" title="随机森林与特征选择"></a>随机森林与特征选择</h4><h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点：<br>    - 能够处理很高维度的数据，并且不用做特征选择<br>    - 对特征之间存在的多重共线性不敏感，并且能够在一定程度上处理缺失数据和不均衡数据<br>    - 在训练完后能够给出哪些特征比较重要<br>    - 容易做成并行化方法<br>缺点：<br>    - 处理噪音较大的小样本和低维数据集的问题上会过度拟合<br>    - 相对于决策树，预测速度较慢<br>    - 相对于决策树，模型可解释性较差</p><h4 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h4><h2 id="Boosting算法"><a href="#Boosting算法" class="headerlink" title="Boosting算法"></a>Boosting算法</h2><p>串行方式训练获得强分类器</p><h3 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h3><p>AdaBoost (Adaptive Boosting)是最有代表性的Boosting算法；<br>AdaBoost的核心思想是利用同一训练样本的不同加权版本，训练一组弱分类器，然后把这些弱分类器以加权的形式集成起来，形成一个最终的强分类器：</p><h4 id="分类器权重更新"><a href="#分类器权重更新" class="headerlink" title="分类器权重更新"></a>分类器权重更新</h4><h4 id="样本权重更新"><a href="#样本权重更新" class="headerlink" title="样本权重更新"></a>样本权重更新</h4><h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据科学导论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据科学导论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>聚类分析</title>
+    <link href="/2023/06/19/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
+    <url>/2023/06/19/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/</url>
+    
+    <content type="html"><![CDATA[<ul><li>聚类模型的本质：将数据集中相似的样本进行分组的过程</li><li>每个组称为一个簇(cluster)每个簇的样本对应一个潜在的类别 </li><li>样本是没有类别标签的，因此聚类是一种典型的无监督学习任务 ，这些簇满足以下两个条件：<ul><li>相同簇的样本之间距离较近</li><li>不同簇的样本之间距离较远</li></ul></li></ul><h2 id="K-means模型"><a href="#K-means模型" class="headerlink" title="K-means模型"></a>K-means模型</h2><h2 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h2><p><strong>层次聚类</strong>(hierarchical clustering)在不同层级上对样本进行聚类，逐步形成树状的结构<br>根据层次分解是以自底向上（合并）还是自顶向下（分裂）方式，层次聚类方法可以分为<br>    <strong>聚合式</strong>聚类(agglomerative clustering)<br>    <strong>分拆式</strong>聚类(divisive clustering)<br>两种方法均是启发式的策略，并没有去优化一个明确的目标函数来实现聚类，很难严格评价聚类的效果</p><h3 id="聚合式聚类"><a href="#聚合式聚类" class="headerlink" title="聚合式聚类"></a>聚合式聚类</h3><h4 id="单连接"><a href="#单连接" class="headerlink" title="单连接"></a>单连接</h4><h4 id="完整连接"><a href="#完整连接" class="headerlink" title="完整连接"></a>完整连接</h4><h4 id="平均连接"><a href="#平均连接" class="headerlink" title="平均连接"></a>平均连接</h4><h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>单连接法只需要两簇内有成员对距离足够近就将两簇合并，而并没有考虑其他簇内其他成员的距离，因此单连接方法形成的簇很有<strong>可能违背紧致性特征</strong> 即簇内成员应该尽可能相似<br>完整连接法是另外一个极端，只有当两簇的联合的成员间的距离相对较小时才将两簇进行合并，因此完整连接法倾向于生成紧致簇<br>平均连接法是介于单连接和完整连接之间的方法，易于生成相对紧致的簇同时簇间距离较远 </p><h3 id="分拆式聚类"><a href="#分拆式聚类" class="headerlink" title="分拆式聚类"></a>分拆式聚类</h3><p>分拆式聚类将所有样本集合看作一簇，以自上而下的方式，递归地将现有的簇分拆为两个子簇<br>利用不同的启发式方法进行分拆方式的选择：<br><strong>二分K-means聚类</strong><br>    选择半径最大的簇，对该簇进行K-means聚类分为两个子簇<br>    重复此过程直到达到想要的簇个数<br><strong>最小生成树法</strong><br>    将每个样本看作一个图节点，将样本间距离看作节点间边的权重，根据此图建立最小生成树<br>    从权重最大处将该簇分拆为两簇，然后重复此过程直到达到想要的簇个数。实际上，该方法得到的聚类结果和单连接的聚合聚类得到的结果一致</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>层次聚类一次性地得到了整个聚类的过程，想要分多少个簇都可以直接根据树图来得到结果，改变簇的数目不需要再次计算数据点的归属类别;<br>单连接和完全连接代表了簇间距离度量的两个极端，它们对离群点或噪声数据过分敏感;<br>平均连接是一种折中方法，它可以克服离群点敏感性问题<br>层次聚类的缺点是计算量大，而且错分在层次聚类中是不可修正的，一旦某个样本被分到某个聚类中，则该样本永远停留在该聚类中</p><h2 id="密度聚类"><a href="#密度聚类" class="headerlink" title="密度聚类"></a>密度聚类</h2><p>密度聚类又称为<strong>基于密度聚类</strong>（density-based clustering）。此类算法假设聚类结构由样本分布的紧密程度确定，以数据集在空间分布上的稠密程度为依据进行聚类，即只要一个区域中的样本<strong>密度大于某个阈值</strong>，就把它<strong>划入与之相近的簇中</strong>。<br>不同于基于质心的原型聚类算法，基于密度的算法不需要事先设置k值。常用的密度聚类算法：DBSCAN、MDCA、OPTICS、DENCLUE等。</p><h3 id="DBSCAN算法"><a href="#DBSCAN算法" class="headerlink" title="DBSCAN算法"></a>DBSCAN算法</h3><p><strong>算法原理</strong><br>    DBSCAN是一种著名的密度聚类算法，它基于一组邻域参数(ϵ，Minpts)刻画样本分布的紧密程度，寻找数据集中的高密度以及低密度区域来完成聚类。可以将该算法归纳为三个步骤：设定邻域参数，数据点分类，聚类。<br>第一步：<strong>设定邻域参数(ϵ，Minpts)</strong><br>以各个数据点为中心，以ϵ为半径，计算其ϵ-邻域内的数据点密度。其中Minpts代表一个簇中最少的数据点个数，高于这个值则为高密度区域，否则为低密度区域。用户可以根据数据集的实际密度的不同设置这两个参数。<br>第二步：<strong>数据点分类</strong><br>基于邻域参数，在DBSCAN算法中，所有的数据点可以分为以下三个类别：<br><strong>核心点</strong>:如果某个点的邻域内的数据点数目高于阈值minpts，则将这个点视为核心点。<br><strong>边界点</strong>是位于核心点邻域之内的，但是其自身的邻域内数据点数小于minpts的点，起到将高密度区域与低密度区域分割开的作用。<br><strong>噪声点</strong>:既不是核心点也不是边界点的其他数据点，他们组成低密度区域。<br>![[Pasted image 20230604194801.png]]<br>进行密度聚类之前还需要了解下面三个概念：<br><strong>密度直达</strong>：两个同属于一个邻域的数据点是密度直达关系<br><strong>密度可达</strong>：o在p的邻域内，从p到o是密度直达，而q对象的邻域内不包括p，但是包括o，这样p-&gt;o-&gt;q，称p到q是密度可达的。<br><strong>密度相连</strong>：q和p是密度可达的, q和t也是密度可达的，则p和t是密度相连的。<br>第三步：<strong>聚类</strong><br>DBSCAN的目标为找到密度相连数据点的最大集合，此集合作为最终的一簇。首先核心点各自成簇，采用密度相连的概念逐步对簇进行合并，打上标记。<br>最终核心点密集的区域会被低密度噪声点包围，噪声点不单独成簇。所以采用DBSCAN进行聚类，最终的结果有一些数据点是没有标记的，这些就是噪声点。<br><strong>优点</strong>：</p><ol><li>无需事先设定簇的个数，算法根据数据自身找出各簇</li><li>适于稠密的非凸数据集，可以发现任意形状的簇</li><li>可以在聚类时发现噪音点、对数据集中的异常点不敏感</li><li>对样本输入顺序不敏感<br><strong>缺点</strong>：</li><li>因为是基于密度分析，如果客观存在的两个簇没有明显的可分间隔，则很有可能被合并为同一个簇</li><li>同时DBSCAN聚类的参数调节较为复杂，参数设置对结果影响较大</li><li>DBSCAN对高维的数据处理效果不好</li></ol><h2 id="PageRank算法"><a href="#PageRank算法" class="headerlink" title="PageRank算法"></a>PageRank算法</h2><p>基本思想：</p><ol><li>不只考虑词项，还考虑指向该网页的链接情况</li><li>被越多优质的网页所指的网页，它是优质的概率就越大<br>Dead End问题<br>链接农场问题<br>交换网站<br>黄金链<br>如何解决链接农场问题？</li><li>对链接的质量进行评估：Google 能够评估链接的质量，通过评估，会考虑链接的来源、内容以及对页面质量产生的影响等因素。</li><li>对链接的数量进行评估：如果某个网站的链接数量异常突出，Google 就会高度怀疑这些链接的真实性，因此会对这些链接进行评估，以判断它们是否具有真正价值。</li><li>采用基于内容的评估方法：Google 会对链接所指向的网页进行内容判断，如果发现这些页面的内容与链接不相关或者低质量，就会对链接产生负面评价。</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据科学导论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据科学导论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>数据预处理</title>
+    <link href="/2023/06/18/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
+    <url>/2023/06/18/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h1 id="离散程度度量"><a href="#离散程度度量" class="headerlink" title="离散程度度量"></a>离散程度度量</h1><h2 id="方差和标准差"><a href="#方差和标准差" class="headerlink" title="方差和标准差"></a>方差和标准差</h2><h2 id="正态分布函数曲线"><a href="#正态分布函数曲线" class="headerlink" title="正态分布函数曲线"></a>正态分布函数曲线</h2><h2 id="极差"><a href="#极差" class="headerlink" title="极差"></a>极差</h2><h2 id="百分位数"><a href="#百分位数" class="headerlink" title="百分位数"></a>百分位数</h2><h2 id="四分位数"><a href="#四分位数" class="headerlink" title="四分位数"></a>四分位数</h2><p>Q1 (25th percentile), Q3 (75th percentile)</p><h2 id="中间四分位数极差"><a href="#中间四分位数极差" class="headerlink" title="中间四分位数极差"></a>中间四分位数极差</h2><p>IQR &#x3D; Q3 – Q1 </p><h2 id="孤立点"><a href="#孤立点" class="headerlink" title="孤立点"></a>孤立点</h2><p>挑出落在至少高于第三个四分位数或低于第一个四分位数<strong>1.5×IQR</strong> 处的值</p><h2 id="盒图"><a href="#盒图" class="headerlink" title="盒图"></a>盒图</h2><h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><h2 id="分位数图"><a href="#分位数图" class="headerlink" title="分位数图"></a>分位数图</h2><h2 id="散布图"><a href="#散布图" class="headerlink" title="散布图"></a>散布图</h2><h2 id="局部回归曲线"><a href="#局部回归曲线" class="headerlink" title="局部回归曲线"></a>局部回归曲线</h2><h1 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h1><h2 id="删除法"><a href="#删除法" class="headerlink" title="删除法"></a>删除法</h2><h3 id="删除样本"><a href="#删除样本" class="headerlink" title="删除样本"></a>删除样本</h3><h3 id="删除特征"><a href="#删除特征" class="headerlink" title="删除特征"></a>删除特征</h3><h2 id="填补法"><a href="#填补法" class="headerlink" title="填补法"></a>填补法</h2><h3 id="均值填补"><a href="#均值填补" class="headerlink" title="均值填补"></a>均值填补</h3><p>连续性特征，采用<strong>平均值</strong>填补<br>离散型特征，使用<strong>众数</strong>填补</p><h3 id="随机填补"><a href="#随机填补" class="headerlink" title="随机填补"></a>随机填补</h3><h4 id="贝叶斯Boostrap方法"><a href="#贝叶斯Boostrap方法" class="headerlink" title="贝叶斯Boostrap方法"></a>贝叶斯Boostrap方法</h4><p>假设数据集有 n 个样本，某特征 f 存在 k 个非缺失值和  (n−k) 个缺失值，使用贝叶斯Bootstrap方法进行缺失值填补共有两步：<br><strong>第一步</strong>：从均匀分布 U(0, 1)中随机抽取 k−1个随机数，并进行升序排序记为{0, a_1,a_2, …,a_k−1, 1}；<br><strong>第二步</strong>：对 (n−k) 个缺失值，分别从非缺失值 {f_1, f_2,… , f_k} 中以概率 a_1,a_2−a_1, …,1−a_k−1采样一个值进行填补.</p><h4 id="近似贝叶斯Boostrap方法"><a href="#近似贝叶斯Boostrap方法" class="headerlink" title="近似贝叶斯Boostrap方法"></a>近似贝叶斯Boostrap方法</h4><h3 id="基于模型的填补"><a href="#基于模型的填补" class="headerlink" title="基于模型的填补"></a>基于模型的填补</h3><p>基于模型的方法将缺失特征 f 作为预测目标. 将数据集中其他特征或其子集作为输入特征，通过特征f的非缺失值构造训练集，训练分类或回归模型. 然后使用构建的模型来预测特征f的缺失值. </p><h3 id="哑变量方法"><a href="#哑变量方法" class="headerlink" title="哑变量方法"></a>哑变量方法</h3><p>对于离散型特征，如果存在缺失值，可以将缺失值作为一个单独的取值进行处理，这种方法称为哑变量方法.<br>例如学生信息数据集中，将”性别”特征的缺失值作为一个特殊的取值”unknown”，表示性别未知. 此时认为”性别”特征包含”F”、”M”和”unknown”三个不同取值. </p><h1 id="数据转换与编码"><a href="#数据转换与编码" class="headerlink" title="数据转换与编码"></a>数据转换与编码</h1><h2 id="数据的标准化"><a href="#数据的标准化" class="headerlink" title="数据的标准化"></a>数据的标准化</h2><h3 id="0-1标准化"><a href="#0-1标准化" class="headerlink" title="0-1标准化"></a>0-1标准化</h3><p>适用范围：<br>    0-1标准化适用于需要将数据简单地变换映射到某 一区间中，但其不足之处在于当有新数据加入时，可能会导致数据系列中的最大值或最小值发生变化，此时便需要重新定义最大值、最小值。</p><h3 id="小数定标标准化"><a href="#小数定标标准化" class="headerlink" title="小数定标标准化"></a>小数定标标准化</h3><h3 id="Z-score-标准化"><a href="#Z-score-标准化" class="headerlink" title="Z-score 标准化"></a>Z-score 标准化</h3><h3 id="Logistic标准化"><a href="#Logistic标准化" class="headerlink" title="Logistic标准化"></a>Logistic标准化</h3><h3 id="各种标准化的优缺点"><a href="#各种标准化的优缺点" class="headerlink" title="各种标准化的优缺点"></a>各种标准化的优缺点</h3><h2 id="数据的编码"><a href="#数据的编码" class="headerlink" title="数据的编码"></a>数据的编码</h2><h3 id="数字编码"><a href="#数字编码" class="headerlink" title="数字编码"></a>数字编码</h3><h3 id="One-hot编码"><a href="#One-hot编码" class="headerlink" title="One-hot编码"></a>One-hot编码</h3><h3 id="哑变量编码"><a href="#哑变量编码" class="headerlink" title="哑变量编码"></a>哑变量编码</h3><h1 id="数据的离散化"><a href="#数据的离散化" class="headerlink" title="数据的离散化"></a>数据的离散化</h1><h3 id="离散化概述"><a href="#离散化概述" class="headerlink" title="离散化概述"></a>离散化概述</h3><h3 id="离散化示例"><a href="#离散化示例" class="headerlink" title="离散化示例"></a>离散化示例</h3><h3 id="离散化步骤"><a href="#离散化步骤" class="headerlink" title="离散化步骤"></a>离散化步骤</h3><h3 id="离散化分类"><a href="#离散化分类" class="headerlink" title="离散化分类"></a>离散化分类</h3><h4 id="等距离散化"><a href="#等距离散化" class="headerlink" title="等距离散化"></a>等距离散化</h4><h4 id="等频离散化"><a href="#等频离散化" class="headerlink" title="等频离散化"></a>等频离散化</h4><h4 id="聚类离散化"><a href="#聚类离散化" class="headerlink" title="聚类离散化"></a>聚类离散化</h4><h4 id="信息增益离散化"><a href="#信息增益离散化" class="headerlink" title="信息增益离散化"></a>信息增益离散化</h4><p><strong>自顶向下的分裂策略</strong></p><p>步骤：</p><h4 id="卡方离散化"><a href="#卡方离散化" class="headerlink" title="卡方离散化"></a>卡方离散化</h4><p><strong>自底向上的合并策略</strong></p><h5 id="ChiMerge方法"><a href="#ChiMerge方法" class="headerlink" title="ChiMerge方法"></a>ChiMerge方法</h5><h4 id="类别属性依赖最大化（CAIM）离散化"><a href="#类别属性依赖最大化（CAIM）离散化" class="headerlink" title="类别属性依赖最大化（CAIM）离散化"></a>类别属性依赖最大化（CAIM）离散化</h4><h3 id="离散化总结"><a href="#离散化总结" class="headerlink" title="离散化总结"></a>离散化总结</h3><h1 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h1><p><strong>目的</strong><br>特征选择能剔除不相关(irrelevant)或冗余(redundant )的特征，从而达到减少特征个数，简化模型，提高模型精确度，减少运行时间的目的<br><strong>两种情况</strong></p><ol><li>特征与特征之间互不相关</li><li>特征之间相互依赖<br><strong>分类</strong></li><li>特征选择</li></ol><ul><li>向前搜索</li><li>向后搜索</li><li>双向搜索</li></ul><ol><li>特征提取</li></ol><ul><li>线性：主成分分析，线性判别分析</li><li>非线性：多维尺度变换，局部线行嵌入<br><strong>策略</strong></li></ul><ol><li>过滤式</li><li>封装式</li><li>嵌入式</li></ol><h3 id="PCA算法"><a href="#PCA算法" class="headerlink" title="PCA算法"></a>PCA算法</h3><h3 id="LDA算法"><a href="#LDA算法" class="headerlink" title="LDA算法"></a>LDA算法</h3><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><h1 id="数据脱敏"><a href="#数据脱敏" class="headerlink" title="数据脱敏"></a>数据脱敏</h1><p><strong>原则</strong></p><ul><li>单向性</li><li>无残留</li><li>易于实现</li></ul><h1 id="数据规约"><a href="#数据规约" class="headerlink" title="数据规约"></a>数据规约</h1><h1 id="数据标注"><a href="#数据标注" class="headerlink" title="数据标注"></a>数据标注</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据科学导论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据科学导论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>My New Post</title>
+    <link href="/2023/06/18/My-New-Post/"/>
+    <url>/2023/06/18/My-New-Post/</url>
+    
+    <content type="html"><![CDATA[<h1 id="我的第一篇博客文章"><a href="#我的第一篇博客文章" class="headerlink" title="我的第一篇博客文章"></a>我的第一篇博客文章</h1><p>希望能成功运行css，js样式</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2023/06/18/hello-world/"/>
+    <url>/2023/06/18/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
