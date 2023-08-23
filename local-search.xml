@@ -4,6 +4,87 @@
   
   
   <entry>
+    <title>arctan的一些公式</title>
+    <link href="/2023/08/23/arctan%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%AC%E5%BC%8F/"/>
+    <url>/2023/08/23/arctan%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%AC%E5%BC%8F/</url>
+    
+    <content type="html"><![CDATA[<p>$$<br>arctan {A}+arctanB&#x3D;arctan\frac {A+B} {1-AB}<br>$$</p><p> 证明：令$x&#x3D;arctanA$,$y&#x3D;arctanB$,</p><p>$ \tan {\left ( {x+y} \right )&#x3D;\frac {\tan {x}+\tan {y, }} {1-\tan {x}\tan {y}}}&#x3D;\frac {A+B} {1-AB} $</p><p>$ arctan\frac {A+B} {1-AB}&#x3D;x+y&#x3D;arctanA+arctanB $</p><p>$arctan {A}+arctanB&#x3D;arctan\frac {A+B} {1-AB}$</p><p>同理可证<br>$$<br>arctan {A}-arctanB&#x3D;arctan\frac {A-B} {1+AB}<br>$$<br>由上述公式可得<br>$$<br>arctan {A}+arctan{\frac{1}{A}}&#x3D;\frac{\pi}{2}<br>$$</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>STL之sort排序</title>
+    <link href="/2023/08/23/STL%E4%B9%8Bsort%E6%8E%92%E5%BA%8F/"/>
+    <url>/2023/08/23/STL%E4%B9%8Bsort%E6%8E%92%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<p>STL头文件<code>#include &lt;algorithm&gt;</code></p><ul><li><p>对基本类型的数组从小到大进行排序：</p><p><strong><code>sort(数组名+n1,数组名+n2);</code></strong></p><p>n1,n2都是int类型的表达式，可以包含变量</p><p>如果n1&#x3D;0,则+n1可以省略不写</p></li></ul><p>将数组中下表范围为**[n1,n2)**的元素从小到大排序，下标为n2的元素不在排序区间内。</p><ul><li><p>对元素类型为T的基本类型数组从大到小进行排序：</p><p><strong><code>sort(数组名+n1,数组名+n2,greater&lt;T&gt;());</code></strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a[] = &#123;<span class="hljs-number">15</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>&#125;;<br>sort(a+<span class="hljs-number">1</span>,a+<span class="hljs-number">4</span>,greater&lt;<span class="hljs-type">int</span>&gt;());<span class="hljs-comment">//结果：&#123;15,9,4,3,7,2,6&#125;</span><br></code></pre></td></tr></table></figure></li><li><p>用自定义的排序规则，对任何类型T的数组进行排序</p><p><strong><code>sort(数组名+n1,数组名+n2,排序规则结构名());</code></strong></p><p>排序规则结构的定义方式：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> 结构名</span><br><span class="hljs-class">&#123;</span><br>    <span class="hljs-type">bool</span> <span class="hljs-title function_">operater</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> T &amp; a1,<span class="hljs-type">const</span> T &amp; a2)</span> <span class="hljs-type">const</span>&#123;<br>        <span class="hljs-comment">//若a1应该在a2的前面，则返回true</span><br>        <span class="hljs-comment">//否则返回false</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>STL</tag>
+      
+      <tag>排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>strlen的糟糕用法</title>
+    <link href="/2023/08/23/strlen%E7%9A%84%E7%B3%9F%E7%B3%95%E7%94%A8%E6%B3%95/"/>
+    <url>/2023/08/23/strlen%E7%9A%84%E7%B3%9F%E7%B3%95%E7%94%A8%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p><strong>strlen的糟糕用法</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> s[<span class="hljs-number">100</span>]=<span class="hljs-string">&quot;test&quot;</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">strlen</span>(s);i++)<br>&#123;<br>    s[i]=s[i]+<span class="hljs-number">1</span><br>&#125;<br></code></pre></td></tr></table></figure><ul><li><p>strlen函数的执行都是需要时间的，而且时间和字符串的长度成正比</p></li><li><p>每次循环都需要调用strlen函数，这是效率上的很大浪费<br><strong>修正用法</strong></p></li><li><p>应取出s的长度存放在另一个变量里面，然后在循环的时候使用该变量</p></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> s[<span class="hljs-number">100</span>]=<span class="hljs-string">&quot;test&quot;</span>;<br><span class="hljs-type">int</span> len=<span class="hljs-built_in">strlen</span>(s);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;len;i++)<br>&#123;<br>    s[i]=s[i]+<span class="hljs-number">1</span><br>&#125;<br></code></pre></td></tr></table></figure><ul><li>或直接将判断条件改为<code>s[i]</code></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> s[<span class="hljs-number">100</span>]=<span class="hljs-string">&quot;test&quot;</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;s[i];i++)<span class="hljs-comment">//s[i]以&#x27;\0&#x27;结尾，刚好其ASCII码为0</span><br>&#123;<br>    s[i]=s[i]+<span class="hljs-number">1</span><br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 2682找出转圈游戏输家</title>
     <link href="/2023/08/16/Leetcode-2682%E6%89%BE%E5%87%BA%E8%BD%AC%E5%9C%88%E6%B8%B8%E6%88%8F%E8%BE%93%E5%AE%B6/"/>
     <url>/2023/08/16/Leetcode-2682%E6%89%BE%E5%87%BA%E8%BD%AC%E5%9C%88%E6%B8%B8%E6%88%8F%E8%BE%93%E5%AE%B6/</url>
