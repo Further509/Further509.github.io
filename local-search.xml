@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>STL之二分查找</title>
+    <link href="/2023/08/24/STL%E4%B9%8B%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    <url>/2023/08/24/STL%E4%B9%8B%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="binary-search进行二分查找"><a href="#binary-search进行二分查找" class="headerlink" title="binary_search进行二分查找"></a>binary_search进行二分查找</h2><ul><li><p>在从小到大排好序的基本类型数组上进行二分查找</p><p>​<strong><code>binary_search(数组名+n1,数组名+n2,值);</code></strong></p><p>​n1和n2都是int类型的表达式，可以包含变量</p><p>​如果n1&#x3D;0，则+n1可以不写</p><p>查找区间为下标范围为[n1,n2)的元素，下标为n2的元素不在查找区间内</p><p>在该查找区间内查找“等于”值的元素，返回值为true（找到）或false（没找到）</p><p><strong>“等于”的含义：a等于b &lt;&#x3D;&gt; a&lt;b和b&lt;a都不成立</strong></p></li><li><p>在用自定义排序规则排好序的，元素为任意的T类型的数组中进行二分查找</p><p>​<strong><code>binary_search(数组名+n1,数组名+n2,值,排序规则结构名());</code></strong></p><p>​n1和n2都是int类型的表达式，可以包含变量</p><p>​如果n1&#x3D;0，则+n1可以不写</p><p>查找区间为下标范围为[n1,n2)的元素，下标为n2的元素不在查找区间内</p><p>在该查找区间内查找“等于”值的元素，返回值为true（找到）或false（没找到）</p><p><strong>查找时的排序规则，必须和排序时的规则一致</strong><br><strong>“等于”的含义：a等于b &lt;&#x3D;&gt; a&lt;b和b&lt;a都不成立</strong></p></li></ul><h2 id="lower-bound二分查找下界"><a href="#lower-bound二分查找下界" class="headerlink" title="lower_bound二分查找下界"></a>lower_bound二分查找下界</h2><ul><li><p>在对元素类型为T的从小到大排好序的基本类型数组上进行二分查找<br>​<strong><code>T * lower_bound(数组名+n1,数组名+n2,值);</code></strong><br>  返回一个指针 T * p;<br>  *p是查找区间里下标最小的，大于等于“值”的元素。如果找不到，p指向下标为n2的元素</p></li><li><p>在元素为任意的T类型、按自定义排序规则排好序的数组中进行查找<br>​<strong><code>T * lower_bound(数组名+n1,数组名+n2,值,排序规则结构名());</code></strong><br>  返回一个指针 T * p;<br>  *p是查找区间里下标最小的，按自定义排序规则，可以排在“值”后面的元素。如果找不到，p指向下标为n2的元素</p></li></ul><h2 id="upper-bound二分查找下界"><a href="#upper-bound二分查找下界" class="headerlink" title="upper_bound二分查找下界"></a>upper_bound二分查找下界</h2><ul><li><p>在对元素类型为T的从小到大排好序的基本类型数组上进行二分查找<br>​<strong><code>T * upper_bound(数组名+n1,数组名+n2,值);</code></strong><br>  返回一个指针 T * p;<br>  *p是查找区间里下标最小的，大于“值”的元素。如果找不到，p指向下标为n2的元素</p></li><li><p>在元素为任意的T类型、按自定义排序规则排好序的数组中进行查找<br>​<strong><code>T * upper_bound(数组名+n1,数组名+n2,值,排序规则结构名());</code></strong><br>  返回一个指针 T * p;<br>  *p是查找区间里下标最小的，按自定义排序规则，一定排在“值”后面的元素。如果找不到，p指向下标为n2的元素</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>STL</tag>
+      
+      <tag>二分查找</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>arctan的一些公式</title>
     <link href="/2023/08/23/arctan%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%AC%E5%BC%8F/"/>
     <url>/2023/08/23/arctan%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%AC%E5%BC%8F/</url>
