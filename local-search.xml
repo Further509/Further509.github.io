@@ -4,6 +4,87 @@
   
   
   <entry>
+    <title>STL之map</title>
+    <link href="/2023/08/26/STL%E4%B9%8Bmap/"/>
+    <url>/2023/08/26/STL%E4%B9%8Bmap/</url>
+    
+    <content type="html"><![CDATA[<h3 id="map的用法"><a href="#map的用法" class="headerlink" title="map的用法"></a>map的用法</h3><p>和multimap的区别在于：</p><ul><li>不能有关键字重复的元素</li><li>可以使用<code>[]</code>，下标为关键字，返回值为first和关键字相同的元素的second</li><li>插入元素可能失败</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>STL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>STL之multimap</title>
+    <link href="/2023/08/26/STL%E4%B9%8Bmultimap/"/>
+    <url>/2023/08/26/STL%E4%B9%8Bmultimap/</url>
+    
+    <content type="html"><![CDATA[<h3 id="multimap的用法"><a href="#multimap的用法" class="headerlink" title="multimap的用法"></a>multimap的用法</h3><p>multimap容器里的元素，都是pair形式的</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">multimap</span>&lt;T1,T2&gt; mp;<br></code></pre></td></tr></table></figure><p>则mp里的元素都是如下类型的：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>T1 first; <span class="hljs-comment">//关键字</span><br>T2 second; <span class="hljs-comment">//值</span><br>&#125;<br></code></pre></td></tr></table></figure><p>multimap中的元素按照first进行排序，并可以按first进行查找</p><p>**缺省的排序规则是<code>a.first &lt; b.first</code>**时为<code>true</code>,则a排在b前面</p><h3 id="multimap的应用"><a href="#multimap的应用" class="headerlink" title="multimap的应用"></a>multimap的应用</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>STL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>英语六级词汇打卡</title>
+    <link href="/2023/08/26/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%AF%8D%E6%B1%87%E6%89%93%E5%8D%A1/"/>
+    <url>/2023/08/26/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E8%AF%8D%E6%B1%87%E6%89%93%E5%8D%A1/</url>
+    
+    <content type="html"><![CDATA[<h3 id="8-26"><a href="#8-26" class="headerlink" title="8.26"></a>8.26</h3><p>occur 发生，出现，存在；被想起，被想到</p><p>oder  气味</p><p>offense 犯规，违法行为；冒犯，得罪</p><p>offensive  冒犯的，无礼的，使人不快的；进攻的，攻击性的；进攻，攻势</p><p>offset补偿，抵消</p><p>offspring  子女，子孙，后代；（动物的）崽</p><p>olive  橄榄，橄榄树</p><p>ongoing持续的，继续的</p><p>opaque 不透明的，不透光的；难理解的，晦涩的</p><p>opponent  对手；敌手，对抗者</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>English</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>CET6</tag>
+      
+      <tag>单词</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo上传Latex代码遇到的问题</title>
     <link href="/2023/08/25/hexo%E4%B8%8A%E4%BC%A0Latex%E4%BB%A3%E7%A0%81%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2023/08/25/hexo%E4%B8%8A%E4%BC%A0Latex%E4%BB%A3%E7%A0%81%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
