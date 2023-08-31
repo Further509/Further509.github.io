@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>N皇后问题</title>
+    <link href="/2023/08/31/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/"/>
+    <url>/2023/08/31/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>N皇后问题研究的是如何将 N 个皇后放置在 N×N 的棋盘上，并且使皇后彼此之间不能相互攻击。</p><p>递归算法求解</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">char</span> Queenspos[<span class="hljs-number">100</span>]=&#123;<span class="hljs-number">0</span>&#125;;<span class="hljs-comment">//记录皇后的位置</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">NQueen</span><span class="hljs-params">( <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span>( k == n) &#123;<span class="hljs-comment">//n行已经摆好，输出结果 </span><br><span class="hljs-type">int</span> i;<br><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span> ; i &lt; n ;i ++)<span class="hljs-comment">//输出n皇后的位置 </span><br>&#123;<br>cout&lt;&lt;Queenspos[i]+<span class="hljs-number">1</span>&lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br>cout &lt;&lt; endl ;<br><span class="hljs-keyword">return</span> ;<br>&#125;<br><span class="hljs-type">int</span> i;<br><span class="hljs-keyword">for</span>( i = <span class="hljs-number">0</span>; i &lt; n ; i ++)&#123;<span class="hljs-comment">//0~k-1行已经摆好，尝试第k行的列位置 </span><br><span class="hljs-type">int</span> flag = <span class="hljs-literal">true</span> ;<br><span class="hljs-keyword">for</span> ( <span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j &lt; k ; j ++) &#123;<br><span class="hljs-keyword">if</span> ( Queenspos[j] == i || <span class="hljs-built_in">abs</span>(Queenspos[j] - i) == (<span class="hljs-built_in">abs</span>(k - j)) ) &#123;<span class="hljs-comment">//不满足条件 </span><br>flag = <span class="hljs-literal">false</span> ;<br><span class="hljs-keyword">break</span>;<br>&#125;<br>&#125;<br><span class="hljs-keyword">if</span>( flag ) &#123;<br>Queenspos[k] = i ;  <br><span class="hljs-built_in">NQueen</span>( k+<span class="hljs-number">1</span> , n) ;<span class="hljs-comment">//满足条件，尝试下一行 </span><br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-type">int</span> n;<br>cin&gt;&gt;n;<span class="hljs-comment">//n皇后 </span><br><span class="hljs-built_in">NQueen</span>(<span class="hljs-number">0</span> , n);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>递归</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>汉诺塔问题递归求解</title>
+    <link href="/2023/08/31/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98%E9%80%92%E5%BD%92%E6%B1%82%E8%A7%A3/"/>
+    <url>/2023/08/31/%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98%E9%80%92%E5%BD%92%E6%B1%82%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>问题描述：给定三根柱子，记为 ‘A’,’B’,’C’ ，其中 A柱子上有 B个盘子，从上到下编号为 0 到 N−1 ，且上面的盘子一定比下面的盘子小。问：将 A 柱上的盘子经由B柱移动到C柱最少需要多少次？</p><p> 移动时应注意：</p><p>  ① 一次只能移动一个盘子</p><p>  ②大的盘子不能压在小盘子上</p><p>递归算法求解：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Honoi</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">char</span> first, <span class="hljs-type">char</span> second, <span class="hljs-type">char</span> third, <span class="hljs-type">int</span> &amp;num)</span></span>&#123;<br><span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span> ) &#123;<br>cout &lt;&lt; first &lt;&lt; <span class="hljs-string">&quot; -&gt; &quot;</span> &lt;&lt; third &lt;&lt; endl ;<span class="hljs-comment">//只有一个盘子 </span><br>num++;<br><span class="hljs-keyword">return</span> ;<br>&#125;<br><span class="hljs-built_in">Honoi</span>(n<span class="hljs-number">-1</span> , first , third , second, num);<span class="hljs-comment">//将n-1个盘子先移到second </span><br>cout &lt;&lt; first &lt;&lt; <span class="hljs-string">&quot; -&gt; &quot;</span> &lt;&lt; third &lt;&lt; endl;<span class="hljs-comment">//再将一个盘子移到third </span><br>num++;<br><span class="hljs-built_in">Honoi</span>(n<span class="hljs-number">-1</span> , second , first , third, num);<span class="hljs-comment">//再将剩下的n-1个盘子从second移到third </span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-type">int</span> n;<br>cin &gt;&gt; n;<span class="hljs-comment">//盘子数目</span><br><span class="hljs-type">int</span> num=<span class="hljs-number">0</span>;<span class="hljs-comment">//用来计算移动次数 </span><br><span class="hljs-built_in">Honoi</span>(n , <span class="hljs-string">&#x27;A&#x27;</span> , <span class="hljs-string">&#x27;B&#x27;</span> , <span class="hljs-string">&#x27;C&#x27;</span>, num);<br>cout &lt;&lt; <span class="hljs-string">&quot;一共用了&quot;</span> &lt;&lt; num &lt;&lt; <span class="hljs-string">&quot;次&quot;</span>; <br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>递归</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>STL之map</title>
     <link href="/2023/08/26/STL%E4%B9%8Bmap/"/>
     <url>/2023/08/26/STL%E4%B9%8Bmap/</url>
