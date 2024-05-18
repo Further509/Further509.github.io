@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>pandas库特定无法使用某些函数的问题</title>
+    <link href="/2024/05/18/%E8%A7%A3%E5%86%B3read_json%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/"/>
+    <url>/2024/05/18/%E8%A7%A3%E5%86%B3read_json%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="解决的问题AttributeError-partially-initialized-module-‘pandas’-has-no-attribute-‘read-json’-most-likely-due-to-a-circular-import"><a href="#解决的问题AttributeError-partially-initialized-module-‘pandas’-has-no-attribute-‘read-json’-most-likely-due-to-a-circular-import" class="headerlink" title="解决的问题AttributeError: partially initialized module ‘pandas’ has no attribute ‘read_json’ (most likely due to a circular import)"></a>解决的问题AttributeError: partially initialized module ‘pandas’ has no attribute ‘read_json’ (most likely due to a circular import)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas<br><br>df = pandas.read_json(<span class="hljs-string">&#x27;Test/sites.json&#x27;</span>)<br><br><span class="hljs-built_in">print</span>(df.to_string())<br></code></pre></td></tr></table></figure><p>在运行过程中遇到如下报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">AttributeError: partially initialized module <span class="hljs-string">&#x27;pandas&#x27;</span> has no attribute <span class="hljs-string">&#x27;read_json&#x27;</span> (most likely due to a circular import)<br></code></pre></td></tr></table></figure><p>解决方法：</p><p><strong>检查其他模块的名称</strong>: 如果你有其他自定义模块或第三方模块的名称与pandas相似，可能会导致导入冲突。请确保没有其他模块干扰pandas的导入。如此处我命名该文件为json.py，即干扰了函数read_joson的使用。</p><p>其他函数如read_csv也适用。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>pandas</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>NOIP2003-普及组 栈</title>
     <link href="/2024/03/27/NOIP2003%20%E6%99%AE%E5%8F%8A%E7%BB%84-%E6%A0%88/"/>
     <url>/2024/03/27/NOIP2003%20%E6%99%AE%E5%8F%8A%E7%BB%84-%E6%A0%88/</url>
