@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Python二维数组定义(List)问题</title>
+    <link href="/2024/10/06/Python%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89(List)%E9%97%AE%E9%A2%98/"/>
+    <url>/2024/10/06/Python%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89(List)%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Python二维数组定义-List-问题"><a href="#Python二维数组定义-List-问题" class="headerlink" title="Python二维数组定义(List)问题"></a>Python二维数组定义(List)问题</h1><h2 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h2><p>采用如下定义出现问题：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-number">5</span><br>dp = [[<span class="hljs-number">0</span>] * n] * n<br>dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(dp)<br></code></pre></td></tr></table></figure><p>输出</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[[1, 0, 0, 0, 0],<br> [1, 0, 0, 0, 0],<br> [1, 0, 0, 0, 0],<br> [1, 0, 0, 0, 0],<br> [1, 0, 0, 0, 0]]<br></code></pre></td></tr></table></figure><p>在改变<code>dp[0][0]</code>时把<code>dp[i][0]</code>都改变了。即每一行的改变都会改变其他行</p><h2 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h2><p>正确定义为：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-number">5</span><br>dp = [[<span class="hljs-number">0</span>] * n <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(dp)<br></code></pre></td></tr></table></figure><p>输出</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[[1, 0, 0, 0, 0],<br> [0, 0, 0, 0, 0],<br> [0, 0, 0, 0, 0],<br> [0, 0, 0, 0, 0],<br> [0, 0, 0, 0, 0]]<br></code></pre></td></tr></table></figure><h2 id="问题探究"><a href="#问题探究" class="headerlink" title="问题探究"></a>问题探究</h2><ul><li>直接赋值：其实就是对象的引用（别名）。</li><li>浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象。</li><li>深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>pandas库特定无法使用某些函数的问题</title>
     <link href="/2024/05/18/%E8%A7%A3%E5%86%B3read_json%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/"/>
     <url>/2024/05/18/%E8%A7%A3%E5%86%B3read_json%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/</url>
