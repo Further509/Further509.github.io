@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>MarsCode-贪心的小包</title>
+    <link href="/2024/10/24/MarsCode-%E8%B4%AA%E5%BF%83%E7%9A%84%E5%B0%8F%E5%8C%85/"/>
+    <url>/2024/10/24/MarsCode-%E8%B4%AA%E5%BF%83%E7%9A%84%E5%B0%8F%E5%8C%85/</url>
+    
+    <content type="html"><![CDATA[<h2 id="贪心的小包"><a href="#贪心的小包" class="headerlink" title="贪心的小包"></a>贪心的小包</h2><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>小包非常喜欢吃甜点，他收到了一次性送来的 N<em>N</em> 个甜点，每个甜点都有一个对应的喜爱值。</p><p>但是这还不够！小包让小哥连续送来了 M<em>M</em> 次相同的 N<em>N</em> 个甜点，并将这些甜点首尾相接排成一排。</p><p>现在，小包面前有 (N×M)(<em>N</em>×<em>M</em>) 个排成一排的甜点，小包希望从中选择一段连续的甜点，使得这段甜点的总喜爱值最大化。</p><p>注意：尽管小包喜欢甜食，但有些甜点可能不合口味，导致其喜爱值为<strong>负数</strong>。小包至少要选择一个甜点来满足他对甜点的贪心。</p><h2 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h2><ul><li>整数 ( N )：表示每次送来的甜点数量。</li><li>整数 ( M )：表示送来的次数。</li><li>数组 <code>data</code>：长度为 ( N )，表示每个甜点的喜爱值。</li></ul><h2 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h2><ul><li>一个整数，表示在 N×M<em>N</em>×<em>M</em> 个甜点中可以选择的连续甜点段的最大总喜爱值。</li></ul><hr><h2 id="测试样例"><a href="#测试样例" class="headerlink" title="测试样例"></a>测试样例</h2><p><em><strong>样例1：</strong></em></p><blockquote><p>输入：<code>N = 5 ,M = 1 ,data = [1, 3, -9, 2, 4]</code><br>输出：<code>6</code><br>解释：选择甜点 <code>[2, 4]</code>，最大总喜爱值为 6</p></blockquote><p><em><strong>样例2：</strong></em></p><blockquote><p>输入：<code>N = 5 ,M = 3 ,data = [1, 3, -9, 2, 4]</code><br>输出：<code>11</code><br>解释：排列后甜点为 <code>[1, 3, -9, 2, 4, 1, 3, -9, 2, 4, 1, 3, -9, 2, 4]</code>。<br>选择 <code>[2, 4, 1, 3, -9, 2, 4, 1, 3]</code> 这段连续甜点，最大总喜爱值为 <code>11</code></p></blockquote><h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><p>动态规划（复杂度较高）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">solution</span>(<span class="hljs-params">N, M, data</span>):<br>    <span class="hljs-comment"># Edit your code here</span><br>    extended_data = data * M<br>    <span class="hljs-comment"># 求最大连续子数组和 O(N*M)^2</span><br>    lenth = <span class="hljs-built_in">len</span>(extended_data)<br>    dp = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(lenth)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(lenth)]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(lenth):<br>        dp[i][i] = extended_data[i]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(lenth):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i+<span class="hljs-number">1</span>, lenth):<br>            dp[i][j] = dp[i][j-<span class="hljs-number">1</span>] + extended_data[j]<br>    ans = -<span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(lenth):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i, lenth):<br>            <span class="hljs-keyword">if</span> ans &lt; dp[i][j]:<br>                ans = dp[i][j]<br>    <span class="hljs-keyword">return</span> ans<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    <span class="hljs-comment"># Add your test cases here</span><br>    <span class="hljs-built_in">print</span>(solution(<span class="hljs-number">5</span>, <span class="hljs-number">1</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>]) == <span class="hljs-number">6</span>)<br>    <span class="hljs-built_in">print</span>(solution(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>]) == <span class="hljs-number">11</span>)<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>MarsCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MarsCode-贪心猫的鱼干大分配</title>
     <link href="/2024/10/24/MarsCode-%E8%B4%AA%E5%BF%83%E7%8C%AB%E7%9A%84%E9%B1%BC%E5%B9%B2%E5%A4%A7%E5%88%86%E9%85%8D/"/>
     <url>/2024/10/24/MarsCode-%E8%B4%AA%E5%BF%83%E7%8C%AB%E7%9A%84%E9%B1%BC%E5%B9%B2%E5%A4%A7%E5%88%86%E9%85%8D/</url>
