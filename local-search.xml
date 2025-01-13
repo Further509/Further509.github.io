@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>HUST-SE数据库考试复习</title>
+    <link href="/2025/01/13/HUST-SE%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/"/>
+    <url>/2025/01/13/HUST-SE%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="HUST-SE数据库复习"><a href="#HUST-SE数据库复习" class="headerlink" title="HUST-SE数据库复习"></a>HUST-SE数据库复习</h1><h2 id="2025年真题"><a href="#2025年真题" class="headerlink" title="2025年真题"></a>2025年真题</h2><blockquote><p>整体不难，概念不用背的很细致，主要靠理解</p></blockquote><h3 id="概念题"><a href="#概念题" class="headerlink" title="概念题"></a>概念题</h3><p>关系数据库数据的结构化</p><p>索引属于三层结构的哪个模式?索引的作用</p><p>关系模式分解，如何保持应用程序不变，体现数据库的特性</p><p>存储结构改变，sql结果是否改变，体现数据库的特性</p><h3 id="大题"><a href="#大题" class="headerlink" title="大题"></a>大题</h3><p>关系代数实操</p><p>SQL代码题</p><p>数据库恢复大题（redo, undo 考的较细）</p><p>并发控制大题</p><p>SQL，关系代数，查询优化综合题</p><p>B+树构建，插入，删除</p><p>强烈推荐<a href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">B+树可视化</a></p><h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><blockquote><p>概念太多了……</p></blockquote><h3 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1. 绪论"></a>1. 绪论</h3><p>手工操作阶段</p><p>文件系统阶段</p><p>数据库系统阶段</p><p>数据模型</p><p>三级模式二级映像</p><p>数据库系统的组成</p><h3 id="2-关系数据库"><a href="#2-关系数据库" class="headerlink" title="2. 关系数据库"></a>2. 关系数据库</h3><p>关系代数</p><p>5种基本关系代数运算：<strong>并，差，选择，投影，笛卡儿积</strong></p><p>交、连接和除可以用这五种运算来表达</p><p>投影操作之后可能出现重复行，会进行去重</p><p>关系的完整性</p><h3 id="3-SQL（代码相关）"><a href="#3-SQL（代码相关）" class="headerlink" title="3. SQL（代码相关）"></a>3. SQL（代码相关）</h3><p>数据定义、查询、更新</p><p>空置处理</p><p>视图</p><h3 id="4-数据库安全性"><a href="#4-数据库安全性" class="headerlink" title="4. 数据库安全性"></a>4. 数据库安全性</h3><p>安全性标准：TCSEC、CC</p><p>自主存储控制(DAC)</p><p>强制存取控制(MAC)</p><p>视图</p><p>审计</p><p>加密</p><h3 id="5-数据库完整性"><a href="#5-数据库完整性" class="headerlink" title="5. 数据库完整性"></a>5. 数据库完整性</h3><p>实体完整性，参照完整性，用户定义的完整性</p><p>断言</p><p>触发器</p><h3 id="6-关系数据理论（重点）"><a href="#6-关系数据理论（重点）" class="headerlink" title="6. 关系数据理论（重点）"></a>6. 关系数据理论（重点）</h3><p>数据依赖：函数依赖，多值依赖</p><p>码、外码、主属性</p><p>Amstrong公理系统</p><p>各个范式</p><h3 id="7-数据库设计"><a href="#7-数据库设计" class="headerlink" title="7. 数据库设计"></a>7. 数据库设计</h3><ol><li>需求分析</li><li>概念结构设计</li><li>逻辑结构设计</li><li>数据库物理设计</li><li>数据库实施</li><li>数据库运行和维护</li></ol><h3 id="8-数据库编程（不考）"><a href="#8-数据库编程（不考）" class="headerlink" title="8. 数据库编程（不考）"></a>8. 数据库编程（不考）</h3><p>嵌入式SQL、游标、PL&#x2F;SQL、存储过程、自定义函数、JDBC</p><h3 id="9-关系数据库存储管理（重点）"><a href="#9-关系数据库存储管理（重点）" class="headerlink" title="9. 关系数据库存储管理（重点）"></a>9. 关系数据库存储管理（重点）</h3><p>数据组织</p><p>索引结构</p><p><strong>B+树</strong></p><h3 id="10-关系查询处理和查询优化"><a href="#10-关系查询处理和查询优化" class="headerlink" title="10. 关系查询处理和查询优化"></a>10. 关系查询处理和查询优化</h3><p>代数优化</p><p>物理优化</p><h3 id="11-数据库恢复技术（重点）"><a href="#11-数据库恢复技术（重点）" class="headerlink" title="11. 数据库恢复技术（重点）"></a>11. 数据库恢复技术（重点）</h3><p>事物</p><p>ACID特性：原子性，一致性，隔离性，持续性</p><p>故障：事物内部的故障，系统故障，介质故障，计算机病毒</p><p>数据转储：静态转储，动态转储</p><p>故障恢复</p><p>日志</p><p>检查点</p><p>数据库镜像</p><p>RAID</p><h3 id="12-并发控制"><a href="#12-并发控制" class="headerlink" title="12. 并发控制"></a>12. 并发控制</h3><p>锁</p><p>2PL</p><p>可串行化调度</p><p>意向锁</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>考试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HUST-SE最优化作业</title>
     <link href="/2025/01/08/%E6%9C%80%E4%BC%98%E5%8C%96%E4%BD%9C%E4%B8%9A/"/>
     <url>/2025/01/08/%E6%9C%80%E4%BC%98%E5%8C%96%E4%BD%9C%E4%B8%9A/</url>
@@ -987,11 +1012,11 @@
     
     <tags>
       
-      <tag>简单</tag>
-      
       <tag>Leetcode</tag>
       
       <tag>每日一题</tag>
+      
+      <tag>简单</tag>
       
     </tags>
     
